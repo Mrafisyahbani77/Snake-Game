@@ -1,0 +1,57 @@
+/* CSS */
+.grid {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 20px; /* Menambahkan border-radius untuk tampilan yang lebih smooth */
+    border: 2px solid #d3d3d3; /* Mengubah border-style menjadi solid dan warna lebih light grey */
+    background-color: #f9f9f9; /* Mengubah background-color menjadi lebih soft */
+}
+
+.start {
+    border-radius: 10px; /* Menambahkan border-radius untuk tombol Start/Restart */
+    border: 2px solid #d3d3d3; /* Mengubah border-style menjadi solid dan warna lebih light grey */
+    background: linear-gradient(to bottom, #f8f8f8, #e9e9e9); /* Menggunakan linear gradient untuk efek glossy */
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1); /* Menambahkan shadow untuk efek glossy */
+}
+
+.start:hover {
+    background: linear-gradient(to bottom, #e9e9e9, #f8f8f8); /* Mengubah warna background saat hover */
+}
+
+.grid div {
+    width: 20px;
+    height: 20px;
+    border-radius: 5px; /* Menambahkan border-radius untuk sel grid */
+}
+
+.snake {
+    background-image: url('arfan.jpg'); /* Menggunakan gambar PNG sebagai latar belakang */
+    background-size: cover; /* Menyesuaikan ukuran gambar dengan ukuran elemen */
+    background-repeat: no-repeat; /* Menghindari pengulangan gambar */
+    width: 20px; /* Menyesuaikan ukuran lebar elemen */
+    height: 20px; /* Menyesuaikan ukuran tinggi elemen */
+}
+
+.win {
+    display: none; /* Hide the win notification initially */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.win span {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.apple {
+    background-color: #8dc73f; /* Mengubah warna apple menjadi lebih hijau */
+}
