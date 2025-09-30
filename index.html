@@ -1,120 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Snake Game</title>
-    <script src="app.js" charset="utf-8"></script>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game Ardan</title>
     <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <button class="start">Start/Restart</button>
-    <div class="win"><span>YOU WIN!!</span></div>
-    <div class="score">Score:<span>0</span></div>
+    <script src="app.js" charset="utf-8"></script>
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <div class="score">Skor: <span id="scoreDisplay">0</span></div>
+            <button class="start-btn" id="startBtn">Mulai Game</button>
+        </div>
 
-    <div class="grid">
-      <div class="snake"></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div class="apple"></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+        <div class="game-wrapper">
+            <div class="grid" id="grid"></div>
+            
+            <div class="controls">
+                <div class="joystick-container">
+                    <div class="joystick-buttons">
+                        <div class="joystick-btn empty"></div>
+                        <div class="joystick-btn" data-direction="up">▲</div>
+                        <div class="joystick-btn empty"></div>
+                        <div class="joystick-btn" data-direction="left">◄</div>
+                        <div class="joystick-btn empty"></div>
+                        <div class="joystick-btn" data-direction="right">►</div>
+                        <div class="joystick-btn empty"></div>
+                        <div class="joystick-btn" data-direction="down">▼</div>
+                        <div class="joystick-btn empty"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="win">
+            <span>🎉 KAMU MENANG! 🎉</span>
+        </div>
+        <div class="game-over">
+            <span>💀 GAME OVER 💀</span>
+        </div>
     </div>
-  </body>
+
+    
+</body>
 </html>

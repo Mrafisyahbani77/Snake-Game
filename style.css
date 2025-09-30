@@ -1,57 +1,248 @@
-/* CSS */
-.grid {
-    width: 200px;
-    height: 200px;
-    display: flex;
-    flex-wrap: wrap;
-    border-radius: 20px; /* Menambahkan border-radius untuk tampilan yang lebih smooth */
-    border: 2px solid #d3d3d3; /* Mengubah border-style menjadi solid dan warna lebih light grey */
-    background-color: #f9f9f9; /* Mengubah background-color menjadi lebih soft */
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.start {
-    border-radius: 10px; /* Menambahkan border-radius untuk tombol Start/Restart */
-    border: 2px solid #d3d3d3; /* Mengubah border-style menjadi solid dan warna lebih light grey */
-    background: linear-gradient(to bottom, #f8f8f8, #e9e9e9); /* Menggunakan linear gradient untuk efek glossy */
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1); /* Menambahkan shadow untuk efek glossy */
-}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            overflow: hidden;
+        }
 
-.start:hover {
-    background: linear-gradient(to bottom, #e9e9e9, #f8f8f8); /* Mengubah warna background saat hover */
-}
+        .game-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+        }
 
-.grid div {
-    width: 20px;
-    height: 20px;
-    border-radius: 5px; /* Menambahkan border-radius untuk sel grid */
-}
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
 
-.snake {
-    background-image: url('arfan.jpg'); /* Menggunakan gambar PNG sebagai latar belakang */
-    background-size: cover; /* Menyesuaikan ukuran gambar dengan ukuran elemen */
-    background-repeat: no-repeat; /* Menghindari pengulangan gambar */
-    width: 20px; /* Menyesuaikan ukuran lebar elemen */
-    height: 20px; /* Menyesuaikan ukuran tinggi elemen */
-}
+        .score {
+            font-size: 24px;
+            font-weight: bold;
+            color: #667eea;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-.win {
-    display: none; /* Hide the win notification initially */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
+        .start-btn {
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
 
-.win span {
-    font-size: 24px;
-    font-weight: bold;
-    color: #ff0000;
-}
+        .start-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
 
-.apple {
-    background-color: #8dc73f; /* Mengubah warna apple menjadi lebih hijau */
-}
+        .start-btn:active {
+            transform: translateY(0);
+        }
+
+        .game-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 2px;
+            background: #e0e0e0;
+            padding: 10px;
+            border-radius: 16px;
+            box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            aspect-ratio: 1;
+        }
+
+        .grid div {
+            background: #f5f5f5;
+            border-radius: 4px;
+            transition: all 0.1s ease;
+            aspect-ratio: 1;
+        }
+
+        .snake {
+            background-image: url('arfan.jpg') !important;
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+            border-radius: 6px !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            animation: pulse 0.3s ease;
+            border: 2px solid #fff;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .apple {
+            background: linear-gradient(135deg, #ff4757, #ff6348) !important;
+            border-radius: 50% !important;
+            box-shadow: 0 2px 8px rgba(255, 71, 87, 0.4);
+            animation: bounce 0.5s ease infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        .win, .game-over {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            z-index: 1000;
+            animation: popIn 0.3s ease;
+        }
+
+        @keyframes popIn {
+            0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
+
+        .win span, .game-over span {
+            font-size: 32px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .game-over span {
+            background: linear-gradient(135deg, #ff4757, #ff6348);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .controls {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .joystick-container {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .joystick-buttons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+            width: 140px;
+            height: 140px;
+        }
+
+        .joystick-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .joystick-btn:active {
+            transform: scale(0.9);
+            box-shadow: 0 2px 5px rgba(102, 126, 234, 0.3);
+        }
+
+        .joystick-btn.empty {
+            background: transparent;
+            box-shadow: none;
+        }
+
+        @media (max-width: 600px) {
+            .game-container {
+                padding: 20px;
+            }
+
+            .controls {
+                display: flex;
+                justify-content: center;
+            }
+
+            .header {
+                justify-content: center;
+            }
+
+            .score {
+                font-size: 20px;
+            }
+
+            .start-btn {
+                padding: 10px 24px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .grid {
+                max-width: 300px;
+            }
+
+            .joystick-container {
+                width: 140px;
+                height: 140px;
+            }
+
+            .joystick-buttons {
+                width: 120px;
+                height: 120px;
+            }
+        }
